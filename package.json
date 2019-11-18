@@ -1,0 +1,22 @@
+{
+  "name": "frontend-project-lvl1",
+  "version": "1.0.0",
+  "description": "my project level 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "brainGames": "src/bin/brain-games.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mkleon/frontend-project-lvl1.git"
+  },
+  "author": "Miklashevsky Kirill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mkleon/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/Mkleon/frontend-project-lvl1#readme"
+}
