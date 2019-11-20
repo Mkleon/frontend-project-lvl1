@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "my project level 1",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brainGames": "src/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/Mkleon/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/Mkleon/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/Mkleon/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1"
+  }
 }
