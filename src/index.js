@@ -6,4 +6,4 @@ const greeting = () => {
   console.log(`Hello, ${name}!`);
 };
 
-export default greeting;
+//export default greeting;
