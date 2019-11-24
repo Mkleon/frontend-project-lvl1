@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-import { greeting, findOutUserName } from '../index';
+import { startBrainGames } from '../index';
 
-// Greeting the user.
-greeting();
-
-findOutUserName();
+startBrainGames();
