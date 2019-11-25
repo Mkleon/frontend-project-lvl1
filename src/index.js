@@ -20,6 +20,9 @@ export const startBrainGames = () => {
   greetingUser(name);
 };
 
+export const startBrainCalc = () => showToUser('calc');
+
+
 export const startBrainEven = () => {
   const description = 'Welcome to the Brain Games!\nAnswer "yes" if the number is even, otherwise answer "no".\n';
   showDescriptionGame(description);
