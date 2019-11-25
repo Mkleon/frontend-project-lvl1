@@ -33,29 +33,21 @@ export const startBrainEven = () => {
       return false;
     }
 
-    const positiveAnswer = 'yes';
-    const negativeAnswer = 'no';
-
     const number = _.random(-99, 99, false);
-    const correctAnswer = (number % 2 === 0) ? positiveAnswer : negativeAnswer;
+    const correctAnswer = (number % 2 === 0) ? 'yes' : 'no';
 
     showToUser(`Question: ${number}`);
 
     const answer = getUserAnswer('Your answer: ');
 
-    const positiveMessage = 'Correct!';
-    const negativeMessage = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`;
-
-    if ((positiveAnswer !== answer && negativeAnswer !== answer) || correctAnswer !== answer) {
-      showToUser(negativeMessage);
+    if (correctAnswer !== answer) {
+      showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
       return false;
     }
 
-    showToUser(positiveMessage);
+    showToUser('Correct!');
 
-    play(count - 1);
-
-    return true;
+    return play(count - 1);
   };
 
   play(3);
