@@ -11,3 +11,7 @@ This repository is an educational project "Brain games".
 ```sh
 $ make install
 ```
+
+## Setup and run 'brain-even' game
+
+[![asciicast](https://asciinema.org/a/283397.svg)](https://asciinema.org/a/283397)
