@@ -1,15 +1,16 @@
 import readlineSync from 'readline-sync';
-import { _ } from 'lodash';
+import _ from 'lodash';
 
-const printToScreen = (text) => console.log(text);
+const showToUser = (text) => console.log(text);
 
 const getUserAnswer = (question) => readlineSync.question(question);
 
-const greetingUser = (name) => printToScreen(`Hello, ${name}!`);
+const greetingUser = (name) => showToUser(`Hello, ${name}!`);
 
 const findOutUserName = () => getUserAnswer('May I have your name? ');
 
-const showDescriptionGame = (description) => printToScreen(description);
+const showDescriptionGame = (description) => showToUser(description);
+
 
 export const startBrainGames = () => {
   const description = 'Welcome to the Brain Games!\n';
@@ -26,26 +27,36 @@ export const startBrainEven = () => {
   const name = findOutUserName();
   greetingUser(name);
 
-  const positiveAnswer = 'yes';
-  const negativeAnswer = 'no';
-  let message = 'Correct!';
+  const play = (count) => {
+    if (count === 0) {
+      showToUser(`Congratulations, ${name}!`);
+      return false;
+    }
 
-  for (let i = 0; i < 3; i += 1) {
+    const positiveAnswer = 'yes';
+    const negativeAnswer = 'no';
+
     const number = _.random(-99, 99, false);
     const correctAnswer = (number % 2 === 0) ? positiveAnswer : negativeAnswer;
 
-    printToScreen(`Question: ${number}`);
+    showToUser(`Question: ${number}`);
 
     const answer = getUserAnswer('Your answer: ');
 
-    if (positiveAnswer !== answer || negativeAnswer !== answer || correctAnswer !== answer) {
-      message = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}`;
+    const positiveMessage = 'Correct!';
+    const negativeMessage = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`;
 
-      printToScreen(message);
-
-      break;
+    if ((positiveAnswer !== answer && negativeAnswer !== answer) || correctAnswer !== answer) {
+      showToUser(negativeMessage);
+      return false;
     }
 
-    printToScreen(message);
-  }
+    showToUser(positiveMessage);
+
+    play(count - 1);
+
+    return true;
+  };
+
+  play(3);
 };
