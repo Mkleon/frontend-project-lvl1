@@ -1,18 +1,11 @@
-import _ from 'lodash';
 import game from '../index';
 
 export default () => {
-  const description = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+  const description = 'What is the result of the expression?\n';
 
-  const question = (low = -99, high = 99) => _.random(low, high);
+  const question = () => 1;
 
-  const correctAnswer = (item) => {
-    if (item % 2 === 0) {
-      return 'yes';
-    }
-
-    return 'no';
-  };
+  const correctAnswer = (item) => item;
 
   game(description, question, correctAnswer);
 };
