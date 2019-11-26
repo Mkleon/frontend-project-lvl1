@@ -1,57 +1,16 @@
-import readlineSync from 'readline-sync';
-import _ from 'lodash';
+import { findOutUserName, showToUser } from './library';
+import { description, play } from './games/brain-even';
 
-const showToUser = (text) => console.log(text);
+const numberOfRounds = 3;
 
-const getUserAnswer = (question) => readlineSync.question(question);
+export default () => {
+  const welcome = 'Welcome to the Brain Games!';
+  showToUser(welcome);
 
-const greetingUser = (name) => showToUser(`Hello, ${name}!`);
+  showToUser(description);
 
-const findOutUserName = () => getUserAnswer('May I have your name? ');
+  const userName = findOutUserName();
+  showToUser(`Hello, ${userName}!`);
 
-const showDescriptionGame = (description) => showToUser(description);
-
-
-export const startBrainGames = () => {
-  const description = 'Welcome to the Brain Games!\n';
-  showDescriptionGame(description);
-
-  const name = findOutUserName();
-  greetingUser(name);
-};
-
-export const startBrainCalc = () => showToUser('calc');
-
-
-export const startBrainEven = () => {
-  const description = 'Welcome to the Brain Games!\nAnswer "yes" if the number is even, otherwise answer "no".\n';
-  showDescriptionGame(description);
-
-  const name = findOutUserName();
-  greetingUser(name);
-
-  const play = (count) => {
-    if (count === 0) {
-      showToUser(`Congratulations, ${name}!`);
-      return false;
-    }
-
-    const number = _.random(-99, 99, false);
-    const correctAnswer = (number % 2 === 0) ? 'yes' : 'no';
-
-    showToUser(`Question: ${number}`);
-
-    const answer = getUserAnswer('Your answer: ');
-
-    if (correctAnswer !== answer) {
-      showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-      return false;
-    }
-
-    showToUser('Correct!');
-
-    return play(count - 1);
-  };
-
-  play(3);
+  play(numberOfRounds, userName);
 };

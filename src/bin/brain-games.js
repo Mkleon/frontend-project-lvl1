@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { startBrainGames } from '../index';
+import startGame from '../index';
 
-startBrainGames();
+startGame('brain-games');
