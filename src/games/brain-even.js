@@ -1,27 +1,18 @@
 import _ from 'lodash';
-import { getUserAnswer, showToUser } from '../library';
+import game from '../index';
 
-export const description = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+export default () => {
+  const description = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
-export const play = (numberOfRounds, userName) => {
-  if (numberOfRounds === 0) {
-    showToUser(`Congratulations, ${userName}!`);
-    return false;
-  }
+  const question = (low = -99, high = 99) => _.random(low, high);
 
-  const number = _.random(-99, 99, false);
-  const correctAnswer = (number % 2 === 0) ? 'yes' : 'no';
+  const correctAnswer = (item) => {
+    if (item % 2 === 0) {
+      return 'yes';
+    }
 
-  showToUser(`Question: ${number}`);
+    return 'no';
+  };
 
-  const answer = getUserAnswer('Your answer: ');
-
-  if (correctAnswer !== answer) {
-    showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
-    return false;
-  }
-
-  showToUser('Correct!');
-
-  return play(numberOfRounds - 1, userName);
+  game(description, question, correctAnswer);
 };

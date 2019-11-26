@@ -1,8 +1,18 @@
-import { showToUser } from '../library';
+import _ from 'lodash';
+import game from '../index';
 
-export const description = 'What is the result of the expression?\n';
+export default () => {
+  const description = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
-export const play = (numberOfRounds, userName) => {
-  showToUser(description);
-  showToUser(userName);
+  const question = (low = -99, high = 99) => _.random(low, high);
+
+  const correctAnswer = (item) => {
+    if (item % 2 === 0) {
+      return 'yes';
+    }
+
+    return 'no';
+  };
+
+  game(description, question, correctAnswer);
 };

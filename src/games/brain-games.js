@@ -1,8 +1,7 @@
-import { showToUser } from '../library';
+import game from '../index';
 
-export const description = '';
+export default () => {
+  const description = '';
 
-export const play = (numberOfRounds, userName) => {
-  showToUser(description);
-  showToUser(userName);
+  game(description);
 };
