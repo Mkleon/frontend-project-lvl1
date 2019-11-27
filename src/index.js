@@ -1,6 +1,6 @@
 import { findOutUserName, showToUser, getUserAnswer } from './library';
 
-const game = (description, question = null, correctAnswer = null) => {
+const game = (description, params = null) => {
   const numberOfRounds = 3;
 
   showToUser('Welcome to the Brain Games!');
@@ -9,21 +9,22 @@ const game = (description, question = null, correctAnswer = null) => {
   const userName = findOutUserName();
   showToUser(`Hello, ${userName}!\n`);
 
-  const play = (round = numberOfRounds) => {
+  const play = (round) => {
     if (round === 0) {
       showToUser(`Congratulations, ${userName}!`);
       return false;
     }
 
-    const questionCurrent = question();
-    const correctAnswerCurrent = correctAnswer(questionCurrent);
+    const data = params();
+    const question = data('question');
+    const correctAnswer = data('answer');
 
-    showToUser(`Question: ${questionCurrent}`);
+    showToUser(`Question: ${question}`);
 
     const answer = getUserAnswer('Your answer: ');
 
-    if (correctAnswerCurrent !== answer) {
-      showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswerCurrent}'.\nLet's try again, ${userName}!`);
+    if (correctAnswer !== answer) {
+      showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
       return false;
     }
 
@@ -33,7 +34,7 @@ const game = (description, question = null, correctAnswer = null) => {
   };
 
   // This condition is for the case when run 'brain-games' only.
-  if (question !== null && correctAnswer !== null) {
+  if (params !== null) {
     play(numberOfRounds);
   }
 };

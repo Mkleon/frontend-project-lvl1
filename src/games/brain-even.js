@@ -4,15 +4,20 @@ import game from '../index';
 export default () => {
   const description = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
-  const question = (low = -99, high = 99) => _.random(low, high);
+  const params = () => {
+    const number = _.random(-99, 99);
+    const correctAnswer = (number % 2 === 0) ? 'yes' : 'no';
 
-  const correctAnswer = (item) => {
-    if (item % 2 === 0) {
-      return 'yes';
-    }
-
-    return 'no';
+    return (message) => {
+      switch (message) {
+        case 'question':
+          return number;
+        case 'answer':
+          return correctAnswer;
+        default: return 'Unknown message';
+      }
+    };
   };
 
-  game(description, question, correctAnswer);
+  game(description, params);
 };
