@@ -12,7 +12,7 @@ export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
   }
 };
 
-export const gameEngine = (description, getQuestionAndAnswer) => {
+export const gameEngine = (description, generateQuestionAndAnswer) => {
   showToUser('Welcome to the Brain Games!');
   showToUser(description);
 
@@ -25,7 +25,7 @@ export const gameEngine = (description, getQuestionAndAnswer) => {
       return false;
     }
 
-    const questionAndAnswer = getQuestionAndAnswer();
+    const questionAndAnswer = generateQuestionAndAnswer();
     const question = questionAndAnswer('question');
     const correctAnswer = questionAndAnswer('answer');
 

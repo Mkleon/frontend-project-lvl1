@@ -3,7 +3,7 @@ import { gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
-const savedQuestionAndAnswer = () => {
+const generateQuestionAndAnswer = () => {
   const question = _.random(-99, 99);
   const correctAnswer = (question % 2 === 0) ? 'yes' : 'no';
 
@@ -11,5 +11,5 @@ const savedQuestionAndAnswer = () => {
 };
 
 export default () => {
-  gameEngine(gameDescription, savedQuestionAndAnswer);
+  gameEngine(gameDescription, generateQuestionAndAnswer);
 };

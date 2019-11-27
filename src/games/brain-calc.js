@@ -28,7 +28,7 @@ const getResult = (num1, num2, sign) => {
   }
 };
 
-const savedQuestionAndAnswer = () => {
+const generateQuestionAndAnswer = () => {
   const number1 = _.random(0, 9);
   const number2 = _.random(0, 9);
   const sign = generateRandomSign();
@@ -40,5 +40,5 @@ const savedQuestionAndAnswer = () => {
 };
 
 export default () => {
-  gameEngine(gameDescription, savedQuestionAndAnswer);
+  gameEngine(gameDescription, generateQuestionAndAnswer);
 };
