@@ -1,8 +1,18 @@
 import { findOutUserName, showToUser, getUserAnswer } from './library';
 
-const game = (description, params = null) => {
-  const numberOfRounds = 3;
+const numberOfRounds = 3;
 
+export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
+  switch (message) {
+    case 'question':
+      return question;
+    case 'answer':
+      return correctAnswer;
+    default: return 'Unknown message';
+  }
+};
+
+export const gameEngine = (description, getQuestionAndAnswer) => {
   showToUser('Welcome to the Brain Games!');
   showToUser(description);
 
@@ -10,14 +20,14 @@ const game = (description, params = null) => {
   showToUser(`Hello, ${userName}!\n`);
 
   const play = (round) => {
-    if (round === 0) {
+    if (round === numberOfRounds) {
       showToUser(`Congratulations, ${userName}!`);
       return false;
     }
 
-    const data = params();
-    const question = data('question');
-    const correctAnswer = data('answer');
+    const questionAndAnswer = getQuestionAndAnswer();
+    const question = questionAndAnswer('question');
+    const correctAnswer = questionAndAnswer('answer');
 
     showToUser(`Question: ${question}`);
 
@@ -30,13 +40,8 @@ const game = (description, params = null) => {
 
     showToUser('Correct!');
 
-    return play(round - 1, userName);
+    return play(round + 1, userName);
   };
 
-  // This condition is for the case when run 'brain-games' only.
-  if (params !== null) {
-    play(numberOfRounds);
-  }
+  play(0);
 };
-
-export default game;

@@ -1,23 +1,15 @@
 import _ from 'lodash';
-import game from '../index';
+import { gameEngine, saveQuestionAndAnswer } from '../index';
+
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+
+const savedQuestionAndAnswer = () => {
+  const question = _.random(-99, 99);
+  const correctAnswer = (question % 2 === 0) ? 'yes' : 'no';
+
+  return saveQuestionAndAnswer(question, correctAnswer);
+};
 
 export default () => {
-  const description = 'Answer "yes" if the number is even, otherwise answer "no".\n';
-
-  const params = () => {
-    const number = _.random(-99, 99);
-    const correctAnswer = (number % 2 === 0) ? 'yes' : 'no';
-
-    return (message) => {
-      switch (message) {
-        case 'question':
-          return number;
-        case 'answer':
-          return correctAnswer;
-        default: return 'Unknown message';
-      }
-    };
-  };
-
-  game(description, params);
+  gameEngine(gameDescription, savedQuestionAndAnswer);
 };
