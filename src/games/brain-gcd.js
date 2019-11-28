@@ -19,7 +19,7 @@ const generateQuestionAndAnswer = () => {
   const number1 = getRandomNumber(1, 99);
   const number2 = getRandomNumber(1, 99);
 
-  const question = `${number1} ${number2} (hint: ${getGreatestCommonDivisor(number1, number2)})`;
+  const question = `${number1} ${number2}`;
   const correctAnswer = (String)(getGreatestCommonDivisor(number1, number2));
 
   return saveQuestionAndAnswer(question, correctAnswer);
