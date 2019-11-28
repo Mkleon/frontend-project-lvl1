@@ -12,6 +12,8 @@ export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
   }
 };
 
+const checkUserAnswer = (userAnswer, correctAnswer) => (correctAnswer === userAnswer);
+
 export const gameEngine = (description, generateQuestionAndAnswer) => {
   showToUser('Welcome to the Brain Games!');
   showToUser(description);
@@ -21,8 +23,7 @@ export const gameEngine = (description, generateQuestionAndAnswer) => {
 
   const play = (round) => {
     if (round === numberOfRounds) {
-      showToUser(`Congratulations, ${userName}!`);
-      return false;
+      return showToUser(`Congratulations, ${userName}!`);
     }
 
     const questionAndAnswer = generateQuestionAndAnswer();
@@ -33,9 +34,8 @@ export const gameEngine = (description, generateQuestionAndAnswer) => {
 
     const answer = getUserAnswer('Your answer: ');
 
-    if (correctAnswer !== answer) {
-      showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
-      return false;
+    if (!checkUserAnswer(answer, correctAnswer)) {
+      return showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
     }
 
     showToUser('Correct!');
