@@ -12,12 +12,14 @@ This repository is an educational project "Brain games".
 $ make install
 ```
 
-## Install and run 'brain-even' game
-
+## Install and run the game 'brain-even'
 [![asciicast](https://asciinema.org/a/283397.svg)](https://asciinema.org/a/283397)
 
-## Install and run 'brain-calc' game
+## Install and run the game 'brain-calc'
 [![asciicast](https://asciinema.org/a/284039.svg)](https://asciinema.org/a/284039)
 
-## Install and run 'brain-gcd' game
+## Install and run the game 'brain-gcd'
 [![asciicast](https://asciinema.org/a/284041.svg)](https://asciinema.org/a/284041)
+
+## Install and run the game 'brain-progression'
+[![asciicast](https://asciinema.org/a/284171.svg)](https://asciinema.org/a/284171)
