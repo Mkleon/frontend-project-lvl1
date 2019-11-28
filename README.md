@@ -18,3 +18,6 @@ $ make install
 
 ## Install and run 'brain-calc' game
 [![asciicast](https://asciinema.org/a/284039.svg)](https://asciinema.org/a/284039)
+
+## Install and run 'brain-gcd' game
+[![asciicast](https://asciinema.org/a/284041.svg)](https://asciinema.org/a/284041)
