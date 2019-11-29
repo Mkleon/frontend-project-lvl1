@@ -23,3 +23,6 @@ $ make install
 
 ## Install and run the game 'brain-progression'
 [![asciicast](https://asciinema.org/a/284171.svg)](https://asciinema.org/a/284171)
+
+## Install and run the game 'brain-prime'
+[![asciicast](https://asciinema.org/a/284252.svg)](https://asciinema.org/a/284252)
