@@ -1,8 +1,17 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.8",
-  "description": "my project level 1",
-  "main": "index.js",
+  "description": "The first project from Hexlet.io called 'Brain-games'. This is a set of games for CLI.",
+  "keywords": [
+    "hexlet project",
+    "brain-games",
+    "brain-gcd",
+    "brain-even",
+    "brain-progression",
+    "brain-calc",
+    "brain-prime"
+  ],
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
