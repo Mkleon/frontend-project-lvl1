@@ -19,11 +19,11 @@ const generateRandomSign = () => {
 const getResult = (num1, num2, sign) => {
   switch (sign) {
     case '+':
-      return (String)(num1 + num2);
+      return num1 + num2;
     case '-':
-      return (String)(num1 - num2);
+      return num1 - num2;
     case '*':
-      return (String)(num1 * num2);
+      return num1 * num2;
     default: return 'Unknown sing';
   }
 };
@@ -34,7 +34,7 @@ const generateQuestionAndAnswer = () => {
   const sign = generateRandomSign();
 
   const question = `${number1} ${sign} ${number2}`;
-  const correctAnswer = getResult(number1, number2, sign);
+  const correctAnswer = (String)(getResult(number1, number2, sign));
 
   return saveQuestionAndAnswer(question, correctAnswer);
 };
