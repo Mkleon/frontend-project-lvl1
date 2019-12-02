@@ -1,7 +1,9 @@
 import readlineSync from 'readline-sync';
-import { showToUser } from './library';
+import { random } from 'lodash';
 
 const numberOfRounds = 3;
+
+export const getRandomNumber = (lowerBound = -9, upperBound = 9) => random(lowerBound, upperBound);
 
 export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
   switch (message) {
@@ -16,30 +18,30 @@ export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
 const checkUserAnswer = (userAnswer, correctAnswer) => (correctAnswer === userAnswer);
 
 export const gameEngine = (description, generateQuestionAndAnswer) => {
-  showToUser('Welcome to the Brain Games!');
-  showToUser(description);
+  console.log('Welcome to the Brain Games!');
+  console.log(description);
 
   const userName = readlineSync.question('May I have your name? ');
-  showToUser(`Hello, ${userName}!\n`);
+  console.log(`Hello, ${userName}!\n`);
 
   const play = (round) => {
     if (round === numberOfRounds) {
-      return showToUser(`Congratulations, ${userName}!`);
+      return console.log(`Congratulations, ${userName}!`);
     }
 
     const questionAndAnswer = generateQuestionAndAnswer();
     const question = questionAndAnswer('question');
     const correctAnswer = questionAndAnswer('answer');
 
-    showToUser(`Question: ${question}`);
+    console.log(`Question: ${question}`);
 
     const answer = readlineSync.question('Your answer: ');
 
     if (!checkUserAnswer(answer, correctAnswer)) {
-      return showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
     }
 
-    showToUser('Correct!');
+    console.log('Correct!');
 
     return play(round + 1, userName);
   };

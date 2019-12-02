@@ -1,5 +1,4 @@
-import { getRandomNumber } from '../library';
-import { gameEngine, saveQuestionAndAnswer } from '../index';
+import { getRandomNumber, gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'What is the result of the expression?\n';
 

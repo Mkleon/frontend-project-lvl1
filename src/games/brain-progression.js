@@ -1,5 +1,4 @@
-import { getRandomNumber } from '../library';
-import { gameEngine, saveQuestionAndAnswer } from '../index';
+import { getRandomNumber, gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'What number is missing in the progression?\n';
 let hiddenItemValue = 0;

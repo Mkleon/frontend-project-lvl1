@@ -1,5 +1,4 @@
-import { getRandomNumber } from '../library';
-import { gameEngine, saveQuestionAndAnswer } from '../index';
+import { getRandomNumber, gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
