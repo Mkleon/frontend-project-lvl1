@@ -1,4 +1,5 @@
-import { findOutUserName, showToUser, getUserAnswer } from './library';
+import readlineSync from 'readline-sync';
+import { showToUser } from './library';
 
 const numberOfRounds = 3;
 
@@ -18,7 +19,7 @@ export const gameEngine = (description, generateQuestionAndAnswer) => {
   showToUser('Welcome to the Brain Games!');
   showToUser(description);
 
-  const userName = findOutUserName();
+  const userName = readlineSync.question('May I have your name? ');
   showToUser(`Hello, ${userName}!\n`);
 
   const play = (round) => {
@@ -32,7 +33,7 @@ export const gameEngine = (description, generateQuestionAndAnswer) => {
 
     showToUser(`Question: ${question}`);
 
-    const answer = getUserAnswer('Your answer: ');
+    const answer = readlineSync.question('Your answer: ');
 
     if (!checkUserAnswer(answer, correctAnswer)) {
       return showToUser(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
