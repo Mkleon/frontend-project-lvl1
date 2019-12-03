@@ -16,9 +16,9 @@ const getArithmeticProgression = () => {
     currentValue += difference;
 
     if (i !== indexOfHiddenItem) {
-      result += ` ${currentValue}`;
+      result = `${result} ${currentValue}`;
     } else {
-      result += ' ..';
+      result = `${result} ..`;
       hiddenItemValue = currentValue;
     }
   }
