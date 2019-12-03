@@ -1,18 +1,16 @@
 import readlineSync from 'readline-sync';
+import { cons, car, cdr } from '@hexlet/pairs';
 
 const numberOfRounds = 3;
 
-export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
-  switch (message) {
-    case 'question':
-      return question;
-    case 'answer':
-      return correctAnswer;
-    default: return 'Unknown message';
-  }
-};
+export const saveQuestionAndAnswer = (question, correctAnswer) => cons(question, correctAnswer);
+
+export const getQuestion = (questionAndAnswer) => car(questionAndAnswer);
+
+export const getAnswer = (questionAndAnswer) => cdr(questionAndAnswer);
 
 const checkUserAnswer = (userAnswer, correctAnswer) => (correctAnswer === userAnswer);
+
 
 export const gameEngine = (description, generateQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
@@ -27,8 +25,8 @@ export const gameEngine = (description, generateQuestionAndAnswer) => {
     }
 
     const questionAndAnswer = generateQuestionAndAnswer();
-    const question = questionAndAnswer('question');
-    const correctAnswer = questionAndAnswer('answer');
+    const question = getQuestion(questionAndAnswer);
+    const correctAnswer = getAnswer(questionAndAnswer);
 
     console.log(`Question: ${question}`);
 
