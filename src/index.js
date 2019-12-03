@@ -1,9 +1,6 @@
 import readlineSync from 'readline-sync';
-import { random } from 'lodash';
 
 const numberOfRounds = 3;
-
-export const getRandomNumber = (lowerBound = -9, upperBound = 9) => random(lowerBound, upperBound);
 
 export const saveQuestionAndAnswer = (question, correctAnswer) => (message) => {
   switch (message) {

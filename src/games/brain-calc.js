@@ -1,9 +1,10 @@
-import { getRandomNumber, gameEngine, saveQuestionAndAnswer } from '../index';
+import { random } from 'lodash';
+import { gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'What is the result of the expression?\n';
 
 const generateRandomSign = () => {
-  switch (getRandomNumber(0, 2)) {
+  switch (random(0, 2)) {
     case 0:
       return '-';
     case 1:
@@ -28,8 +29,8 @@ const getResult = (num1, num2, sign) => {
 };
 
 const generateQuestionAndAnswer = () => {
-  const number1 = getRandomNumber(0, 9);
-  const number2 = getRandomNumber(0, 9);
+  const number1 = random(0, 9);
+  const number2 = random(0, 9);
   const sign = generateRandomSign();
 
   const question = `${number1} ${sign} ${number2}`;

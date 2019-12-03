@@ -1,12 +1,13 @@
-import { getRandomNumber, gameEngine, saveQuestionAndAnswer } from '../index';
+import { random } from 'lodash';
+import { gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'What number is missing in the progression?\n';
 let hiddenItemValue = 0;
 
 const getArithmeticProgression = () => {
-  const difference = getRandomNumber(1, 10);
-  const firstItemValue = getRandomNumber(1, 99);
-  const indexOfHiddenItem = getRandomNumber(0, 9);
+  const difference = random(1, 10);
+  const firstItemValue = random(1, 99);
+  const indexOfHiddenItem = random(0, 9);
 
   let result = '';
   let currentValue = firstItemValue;
