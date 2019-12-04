@@ -12,7 +12,7 @@ const generateRandomSign = () => {
     case 2:
       return '*';
     default:
-      return '+';
+      return false;
   }
 };
 
@@ -24,7 +24,8 @@ const getResult = (num1, num2, sign) => {
       return num1 - num2;
     case '*':
       return num1 * num2;
-    default: return 'Unknown sing';
+    default:
+      return false;
   }
 };
 
