@@ -3,19 +3,6 @@ import { gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'What is the result of the expression?\n';
 
-const generateRandomSign = () => {
-  switch (random(0, 2)) {
-    case 0:
-      return '-';
-    case 1:
-      return '+';
-    case 2:
-      return '*';
-    default:
-      return false;
-  }
-};
-
 const getResult = (num1, num2, sign) => {
   switch (sign) {
     case '+':
@@ -32,10 +19,11 @@ const getResult = (num1, num2, sign) => {
 const generateQuestionAndAnswer = () => {
   const number1 = random(0, 9);
   const number2 = random(0, 9);
-  const sign = generateRandomSign();
+  const listOfSigns = '+-*';
+  const randomSign = listOfSigns[random(0, listOfSigns.length - 1)];
 
-  const question = `${number1} ${sign} ${number2}`;
-  const correctAnswer = (String)(getResult(number1, number2, sign));
+  const question = `${number1} ${randomSign} ${number2}`;
+  const correctAnswer = (String)(getResult(number1, number2, randomSign));
 
   return saveQuestionAndAnswer(question, correctAnswer);
 };
