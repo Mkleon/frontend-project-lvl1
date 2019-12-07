@@ -2,6 +2,7 @@ import { random } from 'lodash';
 import { gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'What is the result of the expression?';
+const listOfSigns = '+-*';
 
 const getResult = (num1, num2, sign) => {
   switch (sign) {
@@ -19,7 +20,6 @@ const getResult = (num1, num2, sign) => {
 const generateQuestionAndAnswer = () => {
   const number1 = random(0, 9);
   const number2 = random(0, 9);
-  const listOfSigns = '+-*';
   const randomSign = listOfSigns[random(0, listOfSigns.length - 1)];
 
   const question = `${number1} ${randomSign} ${number2}`;
