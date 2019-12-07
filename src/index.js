@@ -9,9 +9,6 @@ export const getQuestion = (questionAndAnswer) => car(questionAndAnswer);
 
 export const getAnswer = (questionAndAnswer) => cdr(questionAndAnswer);
 
-const checkUserAnswer = (userAnswer, correctAnswer) => (correctAnswer === userAnswer);
-
-
 export const gameEngine = (description, generateQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
   console.log(`${description}\n`);
@@ -32,7 +29,7 @@ export const gameEngine = (description, generateQuestionAndAnswer) => {
 
     const answer = readlineSync.question('Your answer: ');
 
-    if (!checkUserAnswer(answer, correctAnswer)) {
+    if (answer !== correctAnswer) {
       return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
     }
 
