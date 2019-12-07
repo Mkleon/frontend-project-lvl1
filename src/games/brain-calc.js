@@ -1,5 +1,6 @@
 import { random } from 'lodash';
-import { gameEngine, saveQuestionAndAnswer } from '../index';
+import { saveQuestionAndAnswer } from '../library';
+import gameEngine from '../index';
 
 const gameDescription = 'What is the result of the expression?';
 const listOfSigns = '+-*';
