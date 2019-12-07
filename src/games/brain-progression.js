@@ -4,30 +4,24 @@ import gameEngine from '../index';
 
 const gameDescription = 'What number is missing in the progression?';
 
-const getArithmeticProgression = (firstItemValue, difference, indexOfHiddenItem) => {
+const getArithmeticProgression = (firstItemValue, diff, indexOfHiddenItem, progresLength) => {
   let result = '';
-  let currentValue = firstItemValue;
 
-  for (let i = 0; i <= 9; i += 1) {
-    currentValue += difference;
-
-    if (i !== indexOfHiddenItem) {
-      result = `${result} ${currentValue}`;
-    } else {
-      result = `${result} ..`;
-    }
+  for (let i = 0; i < progresLength; i += 1) {
+    result = `${result} ${(i !== indexOfHiddenItem) ? (firstItemValue + (diff * i)) : '..'}`;
   }
 
   return result;
 };
 
 const generateQuestionAndAnswer = () => {
-  const difference = random(1, 10);
+  const progresLength = 10;
+  const diff = random(1, 10);
   const firstItemValue = random(1, 99);
-  const indexOfHiddenItem = random(0, 9);
-  const hiddenItemValue = firstItemValue + ((indexOfHiddenItem + 1) * difference);
+  const indexOfHiddenItem = random(0, progresLength - 1);
+  const hiddenItemValue = firstItemValue + (diff * indexOfHiddenItem);
 
-  const question = getArithmeticProgression(firstItemValue, difference, indexOfHiddenItem);
+  const question = getArithmeticProgression(firstItemValue, diff, indexOfHiddenItem, progresLength);
   const correctAnswer = (String)(hiddenItemValue);
 
   return joinQuestionAndAnswer(question, correctAnswer);
