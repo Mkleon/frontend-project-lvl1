@@ -3,7 +3,7 @@ import { gameEngine, saveQuestionAndAnswer } from '../index';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrimeNumber = (number) => {
+const isPrime = (number) => {
   if (number < 2) {
     return false;
   }
@@ -25,7 +25,7 @@ const isPrimeNumber = (number) => {
 
 const generateQuestionAndAnswer = () => {
   const question = random(2, 99);
-  const correctAnswer = (isPrimeNumber(question)) ? 'yes' : 'no';
+  const correctAnswer = (isPrime(question)) ? 'yes' : 'no';
 
   return saveQuestionAndAnswer(question, correctAnswer);
 };
