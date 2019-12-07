@@ -1,7 +1,7 @@
 import { random } from 'lodash';
 import { gameEngine, saveQuestionAndAnswer } from '../index';
 
-const gameDescription = 'Find the greatest common divisor of given numbers.\n';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getGreatestCommonDivisor = (num1, num2) => {
   const maxDivisor = (num1 < num2) ? num1 : num2;

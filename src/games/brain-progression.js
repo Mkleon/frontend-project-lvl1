@@ -1,7 +1,7 @@
 import { random } from 'lodash';
 import { gameEngine, saveQuestionAndAnswer } from '../index';
 
-const gameDescription = 'What number is missing in the progression?\n';
+const gameDescription = 'What number is missing in the progression?';
 
 const getArithmeticProgression = (firstItemValue, difference, indexOfHiddenItem) => {
   let result = '';

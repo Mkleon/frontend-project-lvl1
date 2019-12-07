@@ -1,7 +1,7 @@
 import { random } from 'lodash';
 import { gameEngine, saveQuestionAndAnswer } from '../index';
 
-const gameDescription = 'What is the result of the expression?\n';
+const gameDescription = 'What is the result of the expression?';
 
 const getResult = (num1, num2, sign) => {
   switch (sign) {

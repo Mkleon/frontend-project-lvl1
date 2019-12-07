@@ -14,7 +14,7 @@ const checkUserAnswer = (userAnswer, correctAnswer) => (correctAnswer === userAn
 
 export const gameEngine = (description, generateQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
-  console.log(description);
+  console.log(`${description}\n`);
 
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);

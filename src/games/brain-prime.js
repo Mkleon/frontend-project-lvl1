@@ -1,7 +1,7 @@
 import { random } from 'lodash';
 import { gameEngine, saveQuestionAndAnswer } from '../index';
 
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimeNumber = (number) => {
   if (number < 2) {

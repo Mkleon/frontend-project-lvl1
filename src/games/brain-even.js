@@ -1,7 +1,7 @@
 import { random } from 'lodash';
 import { gameEngine, saveQuestionAndAnswer } from '../index';
 
-const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (number) => (number % 2 === 0);
 
