@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { saveQuestionAndAnswer } from '../library';
+import { joinQuestionAndAnswer } from '../library';
 import gameEngine from '../index';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -28,7 +28,7 @@ const generateQuestionAndAnswer = () => {
   const question = random(2, 99);
   const correctAnswer = (isPrime(question)) ? 'yes' : 'no';
 
-  return saveQuestionAndAnswer(question, correctAnswer);
+  return joinQuestionAndAnswer(question, correctAnswer);
 };
 
 export default () => {

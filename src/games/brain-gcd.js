@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { saveQuestionAndAnswer } from '../library';
+import { joinQuestionAndAnswer } from '../library';
 import gameEngine from '../index';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
@@ -23,7 +23,7 @@ const generateQuestionAndAnswer = () => {
   const question = `${number1} ${number2}`;
   const correctAnswer = (String)(getGreatestCommonDivisor(number1, number2));
 
-  return saveQuestionAndAnswer(question, correctAnswer);
+  return joinQuestionAndAnswer(question, correctAnswer);
 };
 
 export default () => {

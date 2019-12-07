@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { saveQuestionAndAnswer } from '../library';
+import { joinQuestionAndAnswer } from '../library';
 import gameEngine from '../index';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -10,7 +10,7 @@ const generateQuestionAndAnswer = () => {
   const question = random(-99, 99);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
 
-  return saveQuestionAndAnswer(question, correctAnswer);
+  return joinQuestionAndAnswer(question, correctAnswer);
 };
 
 export default () => {

@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { saveQuestionAndAnswer } from '../library';
+import { joinQuestionAndAnswer } from '../library';
 import gameEngine from '../index';
 
 const gameDescription = 'What is the result of the expression?';
@@ -26,7 +26,7 @@ const generateQuestionAndAnswer = () => {
   const question = `${number1} ${randomSign} ${number2}`;
   const correctAnswer = (String)(getResult(number1, number2, randomSign));
 
-  return saveQuestionAndAnswer(question, correctAnswer);
+  return joinQuestionAndAnswer(question, correctAnswer);
 };
 
 export default () => {

@@ -1,6 +1,6 @@
 import { car, cdr, cons } from '@hexlet/pairs';
 
-export const saveQuestionAndAnswer = (question, correctAnswer) => cons(question, correctAnswer);
+export const joinQuestionAndAnswer = (question, correctAnswer) => cons(question, correctAnswer);
 
 export const getQuestion = (questionAndAnswer) => car(questionAndAnswer);
 
