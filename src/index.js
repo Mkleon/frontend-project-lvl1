@@ -12,7 +12,7 @@ const gameEngine = (description, generateQuestionAndAnswer) => {
 
   const play = (round) => {
     if (round === numberOfRounds) {
-      return console.log(`Congratulations, ${userName}!`);
+      return true;
     }
 
     const questionAndAnswer = generateQuestionAndAnswer();
@@ -24,15 +24,20 @@ const gameEngine = (description, generateQuestionAndAnswer) => {
     const answer = readlineSync.question('Your answer: ');
 
     if (answer !== correctAnswer) {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      return false;
     }
 
     console.log('Correct!');
 
-    return play(round + 1, userName);
+    return play(round + 1);
   };
 
-  play(0);
+  if (play(0)) {
+    console.log(`Congratulations, ${userName}!`);
+  } else {
+    console.log(`Let's try again, ${userName}!`);
+  }
 };
 
 export default gameEngine;
