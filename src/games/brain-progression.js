@@ -1,6 +1,6 @@
 import { random } from 'lodash';
 import { joinQuestionAndAnswer } from '../library';
-import gameEngine from '../index';
+import gameEngine from '..';
 
 const gameDescription = 'What number is missing in the progression?';
 

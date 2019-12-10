@@ -1,6 +1,6 @@
 import { random } from 'lodash';
 import { joinQuestionAndAnswer } from '../library';
-import gameEngine from '../index';
+import gameEngine from '..';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 

@@ -1,6 +1,6 @@
 import { random } from 'lodash';
 import { joinQuestionAndAnswer } from '../library';
-import gameEngine from '../index';
+import gameEngine from '..';
 
 const gameDescription = 'What is the result of the expression?';
 const sings = '+-*';
